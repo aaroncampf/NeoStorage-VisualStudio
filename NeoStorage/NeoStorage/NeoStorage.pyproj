@@ -55,6 +55,7 @@
     <Folder Include="NeoStorage\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\locations.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
