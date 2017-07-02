@@ -57,6 +57,7 @@
   <ItemGroup>
     <Content Include="app\templates\app\locations.html" />
     <Content Include="app\templates\app\products.html" />
+    <Content Include="app\templates\app\vendor.html" />
     <Content Include="app\templates\app\vendors.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

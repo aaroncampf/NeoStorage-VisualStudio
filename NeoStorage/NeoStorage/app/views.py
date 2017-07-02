@@ -43,21 +43,38 @@ def locations(request):
 			'data':Location.objects.all()
 		})
 
-def vendors(request):
+
+def vendor(request, id):
 	"""Renders the vendors page."""
 	assert isinstance(request, HttpRequest)
 
+	return render(request,
+		'app/vendor.html',
+		{
+			'title':'vendor',
+			'message':'Your application description page.',
+			'data':Vendor.objects.all()[int(id)]
+		})
+
+def vendors(request):
+	"""Renders the vendors page."""
+	assert isinstance(request, HttpRequest)
+	
 	if Vendor.objects.all().count() == 0:
 		Vendor1 = Vendor.objects.create(Name = "Test Vendor", Address = "1111", City = "Portland", Zip ="87654", 
 										Phone="(555) 555-5555", Email ="Test@example.com")
-		Vendor1.save()  
+		Vendor1.save() 
+
+		Vendor2 = Vendor.objects.create(Name = "Test Vendor2", Address = "2222", City = "Salen", Zip ="56980", 
+										Phone="(666) 666-6666", Email ="Example@example.com")
+		Vendor2.save()  
 
 	return render(request,
 		'app/vendors.html',
 		{
 			'title':'vendors',
 			'message':'Your application description page.',
-			'data':Location.objects.all()
+			'data':Vendor.objects.all()
 		})
 
 
@@ -66,13 +83,14 @@ def products(request):
 	assert isinstance(request, HttpRequest)
 
 	if Product.objects.all().count() == 0:
-		Vendor1 = Vendor.objects.create()
+		Vendor1 = Vendor.objects.all()[0]
+		Vendor2 = Vendor.objects.all()[1]
 		Location1 = Location.objects.all()[0]
 		Location2 = Location.objects.all()[1]
 
 		Product1 = Product.objects.create(CATG = "A", Group = "A-1", Description = "Towels", Vendor = Vendor1, Location = Location1)
 		Product1.save()
-		Product2 = Product.objects.create(CATG = "A", Group = "A-2", Description = "Toilet Paper", Vendor = Vendor1, Location = Location2)
+		Product2 = Product.objects.create(CATG = "A", Group = "A-2", Description = "Toilet Paper", Vendor = Vendor2, Location = Location2)
 		Product2.save()
 
 	return render(request,
@@ -80,5 +98,5 @@ def products(request):
 		{
 			'title':'products',
 			'message':'Your application description page.',
-			'data':Location.objects.all()
+			'data':Product.objects.all()
 		})

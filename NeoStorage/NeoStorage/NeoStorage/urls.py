@@ -45,4 +45,5 @@ urlpatterns = [# Examples:
     #Aaron
     url(r'^locations$', app.views.locations, name='locations'),
     url(r'^products$', app.views.products, name='products'),
-    url(r'^vendors$', app.views.vendors, name='vendors'),]
+    url(r'^vendors$', app.views.vendors, name='vendors'),
+    url(r'^vendor/(\d+)/$', app.views.vendor, name='vendor'),]

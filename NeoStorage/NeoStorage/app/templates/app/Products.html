@@ -8,12 +8,20 @@
 
 <table class="table table-striped">
     <tr>
-        <th></th>
+        <th>CATG</th>
+        <th>Group</th>
+        <th>Description</th>
+        <th>Vendor</th>
+        <th>Location</th>
     </tr>
 
-    {% for Location in data %}
+    {% for Product in data %}
     <tr>
-        <td>{{ "sgdg"  }}</td>
+        <td>{{ Product.CATG }}</td>
+        <td>{{ Product.Group }}</td>
+        <td>{{ Product.Description }}</td>
+        <td>{{ Product.Vendor.Name }}</td>
+        <td>{{ Product.Location.Area }} - {{ Product.Location.Bin }}</td>
     </tr>
     {% endfor %}
 

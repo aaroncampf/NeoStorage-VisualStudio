@@ -1,0 +1,33 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+
+<table class = "table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+
+	<tr>
+		<td>{{ data.Name }}</td>
+		<td>{{ data.Address }}</td>
+		<td>{{ data.City }}</td>
+		<td>{{ data.State }}</td>
+		<td>{{ data.Zip }}</td>
+		<td>{{ data.Phone }}</td>
+		<td>{{ data.Email }}</td>
+	</tr>
+
+    
+</table>
+
+{% endblock %}
