@@ -44,25 +44,13 @@ def locations(request):
 			'data':Location.objects.all()
 		})
 
-
-#def vendor(request, id):
-#	"""Renders the vendors page."""
-#	assert isinstance(request, HttpRequest)
-
-#	return render(request,
-#		'app/vendor.html',
-#		{
-#			'title':'vendor',
-#			'message':'Your application description page.',
-#			'data':Vendor.objects.all()[int(id)]
-#		})
 class VendorUpdate(UpdateView):
-    model = Vendor
-    fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
+	model = Vendor
+	fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
 
 class VendorCreate(CreateView):
-    model = Vendor
-    fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
+	model = Vendor
+	fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
 
 	def form_valid(self, form):
 		self.success_url = '/vendor'
@@ -80,7 +68,7 @@ def vendors(request):
 
 		Vendor2 = Vendor.objects.create(Name = "Test Vendor2", Address = "2222", City = "Salen", Zip ="56980", 
 										Phone="(666) 666-6666", Email ="Example@example.com")
-		Vendor2.save()  
+		Vendor2.save()
 
 	return render(request,
 		'app/vendors.html',
@@ -90,6 +78,18 @@ def vendors(request):
 			'data':Vendor.objects.all()
 		})
 
+class ProductUpdate(UpdateView):
+	model = Product
+	fields = ['CATG', 'Group', 'Description', 'Vendor', 'Location']
+
+class ProductCreate(CreateView):
+	model = Product
+	fields = ['CATG', 'Group', 'Description', 'Vendor', 'Location']
+
+	def form_valid(self, form):
+		self.success_url = '/products'
+		form.save()
+		return super(form_valid, self).form_valid(form)
 
 def products(request):
 	"""Renders the products page."""

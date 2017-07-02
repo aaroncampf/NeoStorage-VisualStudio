@@ -48,5 +48,7 @@ urlpatterns = [# Examples:
     url(r'^vendors$', app.views.vendors, name='vendors'),
     #url(r'^vendor/(\d+)/$', app.views.VendorView.as_view(), name='vendor'),
 	url(r'^vendor/(?P<pk>\d+)/$', app.views.VendorUpdate.as_view(), name='vendor'),
-	url(r'^vendor/create/$', app.views.VendorCreate.as_view(), name='vendor-create')
+	url(r'^vendor/create/$', app.views.VendorCreate.as_view(), name='vendor-create'),
+	url(r'^product/$', app.views.ProductUpdate.as_view(), name='product'),
+	url(r'^product/create/$', app.views.ProductCreate.as_view(), name='product-create')
 ,]

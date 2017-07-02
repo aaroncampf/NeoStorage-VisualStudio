@@ -17,9 +17,15 @@ class Product(models.Model):
 	Vendor = models.ForeignKey('Vendor')
 	Location = models.ForeignKey('Location', blank=True, null=True)
 
+	def __str__(self):
+		return self.Description
+
 class Location(models.Model):
 	Area = models.IntegerField()
 	Bin = models.IntegerField()
+
+	def __str__(self):
+		return '%s - %s' % (self.Area, self.Bin)
 
 class Vendor(models.Model):
 	Name = models.CharField(max_length=200)
@@ -29,6 +35,9 @@ class Vendor(models.Model):
 	Zip = models.CharField(max_length=200, default='')
 	Phone = models.CharField(max_length=200, default='')
 	Email = models.CharField(max_length=200, default='')
+
+	def __str__(self):
+		return self.Name
 
 	def get_absolute_url(self):
 		return reverse('vendor', kwargs={'pk': self.pk})

@@ -8,14 +8,14 @@
 
 <table class = "table table-striped">
     <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-        <th>Phone</th>
-        <th>Email</th>
-		<th></th>
+        <th style="text-align:center">Name</th>
+        <th style="text-align:center">Address</th>
+        <th style="text-align:center">City</th>
+        <th style="text-align:center">State</th>
+        <th style="text-align:center">Zip</th>
+        <th style="text-align:center">Phone</th>
+        <th style="text-align:center">Email</th>
+		<th style="text-align:center"></th>
     </tr>
 
     {% for Vendor in data %}
@@ -26,7 +26,6 @@
         <td>{{ Vendor.State }}</td>
         <td>{{ Vendor.Zip }}</td>
         <td>{{ Vendor.Phone }}</td>
-        <td>{{ Vendor.Email }}</td>
 		<td>{{ Vendor.Email }}</td>
 		<td><a href="vendor/{{ Vendor.pk }}">Edit</a></td>
     </tr>

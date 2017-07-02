@@ -1,10 +1,8 @@
 ﻿{% extends "app/layout.html" %}
-
 {% block content %}
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
-
 
 <table class="table table-striped">
     <tr>
@@ -23,9 +21,8 @@
         <td>{{ Product.Vendor.Name }}</td>
         <td>{{ Product.Location.Area }} - {{ Product.Location.Bin }}</td>
     </tr>
-    {% endfor %}
-
-    
+    {% endfor %}    
 </table>
 
+<a class="btn btn-primary" href="product/create">Create New Product</a>
 {% endblock %}
