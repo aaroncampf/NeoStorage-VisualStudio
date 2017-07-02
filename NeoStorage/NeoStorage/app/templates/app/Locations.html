@@ -8,14 +8,20 @@
 
 <table class="table table-striped">
     <tr>
-        <th>Area</th>
-        <th>Bin</th>
+        <th>CATG</th>
+        <th>Group</th>
+        <th>Description</th>
+        <th>Vendor</th>
+        <th>Location</th>
     </tr>
 
-    {% for Location in data %}
+    {% for Product in data %}
     <tr>
-        <td>{{ Location.Area }}</td>
-        <td>{{ Location.Bin }}</td>
+        <td>{{ Location.CATG }}</td>
+        <td>{{ Location.Group }}</td>
+        <td>{{ Location.Description }}</td>
+        <td>{{ Location.Vendor }}</td>
+        <td>{{ Location.Location }}</td>
     </tr>
     {% endfor %}
 

@@ -43,4 +43,6 @@ urlpatterns = [# Examples:
      url(r'^admin/', include(admin.site.urls)),
 
     #Aaron
-    url(r'^locations$', app.views.locations, name='locations')]
+    url(r'^locations$', app.views.locations, name='locations'),
+    url(r'^products$', app.views.products, name='products'),
+    url(r'^vendors$', app.views.vendors, name='vendors'),]

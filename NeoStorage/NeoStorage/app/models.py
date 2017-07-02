@@ -22,9 +22,9 @@ class Location(models.Model):
 
 class Vendor(models.Model):
 	Name = models.CharField(max_length=200)
-	City = models.CharField(max_length=200)
-	State = models.CharField(max_length=200)
-	Zip = models.CharField(max_length=200)
-	Name = models.CharField(max_length=200)
-	Name = models.CharField(max_length=200)
-	Name = models.CharField(max_length=200)
+	Address = models.CharField(max_length=200, default='')
+	City = models.CharField(max_length=200, default='')
+	State = models.CharField(max_length=200, default='')
+	Zip = models.CharField(max_length=200, default='')
+	Phone = models.CharField(max_length=200, default='')
+	Email = models.CharField(max_length=200, default='')

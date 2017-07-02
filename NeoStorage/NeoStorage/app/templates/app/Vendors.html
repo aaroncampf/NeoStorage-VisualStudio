@@ -1,0 +1,35 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+
+<table class = "table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+
+    {% for Vendor in data %}
+    <tr>
+        <td>{{ Vendor.Name }}</td>
+        <td>{{ Vendor.Address }}</td>
+        <td>{{ Vendor.City }}</td>
+        <td>{{ Vendor.State }}</td>
+        <td>{{ Vendor.Zip }}</td>
+        <td>{{ Vendor.Phone }}</td>
+        <td>{{ Vendor.Email }}</td>
+    </tr>
+    {% endfor %}
+
+    
+</table>
+
+{% endblock %}
