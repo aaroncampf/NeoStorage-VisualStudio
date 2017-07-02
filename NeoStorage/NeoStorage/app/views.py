@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from app.models import *
 
@@ -44,17 +45,29 @@ def locations(request):
 		})
 
 
-def vendor(request, id):
-	"""Renders the vendors page."""
-	assert isinstance(request, HttpRequest)
+#def vendor(request, id):
+#	"""Renders the vendors page."""
+#	assert isinstance(request, HttpRequest)
 
-	return render(request,
-		'app/vendor.html',
-		{
-			'title':'vendor',
-			'message':'Your application description page.',
-			'data':Vendor.objects.all()[int(id)]
-		})
+#	return render(request,
+#		'app/vendor.html',
+#		{
+#			'title':'vendor',
+#			'message':'Your application description page.',
+#			'data':Vendor.objects.all()[int(id)]
+#		})
+class VendorUpdate(UpdateView):
+    model = Vendor
+    fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
+
+class VendorCreate(CreateView):
+    model = Vendor
+    fields = ['Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email']
+
+	def form_valid(self, form):
+		self.success_url = '/vendor'
+		form.save()
+		return super(form_valid, self).form_valid(form)
 
 def vendors(request):
 	"""Renders the vendors page."""

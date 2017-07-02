@@ -15,6 +15,7 @@
         <th>Zip</th>
         <th>Phone</th>
         <th>Email</th>
+		<th></th>
     </tr>
 
     {% for Vendor in data %}
@@ -26,10 +27,14 @@
         <td>{{ Vendor.Zip }}</td>
         <td>{{ Vendor.Phone }}</td>
         <td>{{ Vendor.Email }}</td>
+		<td>{{ Vendor.Email }}</td>
+		<td><a href="vendor/{{ Vendor.pk }}">Edit</a></td>
     </tr>
     {% endfor %}
 
     
 </table>
+
+<a class="btn btn-primary" href="vendor/create">Create New Vendor</a>
 
 {% endblock %}

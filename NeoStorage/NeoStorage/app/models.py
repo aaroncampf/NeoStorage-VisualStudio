@@ -3,6 +3,7 @@ Definition of models.
 """
 
 from django.db import models
+from django.urls import reverse
 
 #**************************************
 # IDs are automatically added for you
@@ -28,3 +29,6 @@ class Vendor(models.Model):
 	Zip = models.CharField(max_length=200, default='')
 	Phone = models.CharField(max_length=200, default='')
 	Email = models.CharField(max_length=200, default='')
+
+	def get_absolute_url(self):
+		return reverse('vendor', kwargs={'pk': self.pk})

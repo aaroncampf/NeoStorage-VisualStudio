@@ -41,9 +41,12 @@ urlpatterns = [# Examples:
 
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
-
+	
     #Aaron
     url(r'^locations$', app.views.locations, name='locations'),
     url(r'^products$', app.views.products, name='products'),
     url(r'^vendors$', app.views.vendors, name='vendors'),
-    url(r'^vendor/(\d+)/$', app.views.vendor, name='vendor'),]
+    #url(r'^vendor/(\d+)/$', app.views.VendorView.as_view(), name='vendor'),
+	url(r'^vendor/(?P<pk>\d+)/$', app.views.VendorUpdate.as_view(), name='vendor'),
+	url(r'^vendor/create/$', app.views.VendorCreate.as_view(), name='vendor-create')
+,]
