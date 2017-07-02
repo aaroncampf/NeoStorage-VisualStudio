@@ -5,8 +5,23 @@
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
 
-{% for Location in data %}
-    {{ Location.Area }}
-{% endfor %}
+
+<table class="table table-striped">
+    <tr>
+        <th>Area</th>
+        <th>Bin</th>
+    </tr>
+
+    {% for Location in data %}
+    <tr>
+        <td>{{ Location.Area }}</td>
+        <td>{{ Location.Bin }}</td>
+    </tr>
+    {% endfor %}
+
+    
+</table>
+
+
 
 {% endblock %}
