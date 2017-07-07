@@ -8,6 +8,8 @@ from django.template import RequestContext
 from datetime import datetime
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from itertools import *
+
 from app.models import *
 
 
@@ -43,6 +45,39 @@ def locations(request):
 			'message':'Your application description page.',
 			'data':Location.objects.all()
 		})
+
+class LocationUpdate(UpdateView):
+	model = Location
+	fields = ['Area', 'Bin']
+
+class LocationCreate(CreateView):
+	model = Location
+	fields = ['Area', 'Bin']
+
+	def form_valid(self, form):
+		self.success_url = '/locations'
+		form.save()
+		return super(form_valid, self).form_valid(form)
+
+def locationguide(request):
+	"""Renders the locations page."""
+	assert isinstance(request, HttpRequest)
+
+	TestData = groupby(Location.objects.all(), lambda x: x.Area)	
+
+	#for Area, Locations in TestData:
+	#	print(Area)
+	#	for Loc in Locations:
+	#		print(Loc)
+
+	return render(request,
+		'app/locationguide.html',
+		{
+			'title':'Locations',
+			'message':'Your application description page.',
+			'data':TestData
+		})
+
 
 class VendorUpdate(UpdateView):
 	model = Vendor

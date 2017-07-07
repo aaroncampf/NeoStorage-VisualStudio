@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\templates\app\locations.html" />
+    <Content Include="app\templates\app\location_form.html" />
+    <Content Include="app\templates\app\locationguide.html" />
     <Content Include="app\templates\app\products.html" />
     <Content Include="app\templates\app\vendors.html" />
     <Content Include="app\templates\app\product_form.html" />

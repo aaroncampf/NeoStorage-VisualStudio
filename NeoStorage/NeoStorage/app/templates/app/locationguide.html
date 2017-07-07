@@ -1,27 +1,22 @@
 ﻿{% extends "app/layout.html" %}
-
 {% block content %}
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
-
+{% for Area, Locations in data %}
 
 <table class="table table-striped">
+	<caption>{{ Area }}</caption>
     <tr>
         <th>Area</th>
         <th>Bin</th>
-        <th></th>
     </tr>
 
-    {% for Location in data %}
+    {% for Location in Locations %}
     <tr>
         <td>{{ Location.Area }}</td>
         <td>{{ Location.Bin }}</td>
-		<td><a href="location/{{ Location.pk }}">Edit</a></td>
     </tr>
     {% endfor %}    
 </table>
 
-<a class="btn btn-primary" href="location/create">Create New Location</a>
-
+{% endfor %}
 {% endblock %}

@@ -26,6 +26,15 @@
                     <li><a href="{% url 'locations' %}">Locations</a></li>
                     <li><a href="{% url 'products' %}">Products</a></li>
                     <li><a href="{% url 'vendors' %}">Vendors</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Locations <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'locations' %}">Edit</a></li>
+							<li><a href="{% url 'locationguide' %}">Guide</a></li>
+						</ul>
+					</li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>

@@ -36,7 +36,7 @@ urlpatterns = [# Examples:
         },
         name='logout'),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
+    # Uncomment the admin/doc line below to enable admin documentat ion:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
@@ -44,11 +44,14 @@ urlpatterns = [# Examples:
 	
     #Aaron
     url(r'^locations$', app.views.locations, name='locations'),
+	url(r'^location/(?P<pk>\d+)/$', app.views.LocationUpdate.as_view(), name='location'),
+	url(r'^location/create/$', app.views.LocationCreate.as_view(), name='location-create'),
+    url(r'^locationguide$', app.views.locationguide, name='locationguide'),
+
     url(r'^products$', app.views.products, name='products'),
+	url(r'^product/(?P<pk>\d+)/$', app.views.ProductUpdate.as_view(), name='product'),
+	url(r'^product/create/$', app.views.ProductCreate.as_view(), name='product-create'),
+
     url(r'^vendors$', app.views.vendors, name='vendors'),
-    #url(r'^vendor/(\d+)/$', app.views.VendorView.as_view(), name='vendor'),
 	url(r'^vendor/(?P<pk>\d+)/$', app.views.VendorUpdate.as_view(), name='vendor'),
-	url(r'^vendor/create/$', app.views.VendorCreate.as_view(), name='vendor-create'),
-	url(r'^product/$', app.views.ProductUpdate.as_view(), name='product'),
-	url(r'^product/create/$', app.views.ProductCreate.as_view(), name='product-create')
-,]
+	url(r'^vendor/create/$', app.views.VendorCreate.as_view(), name='vendor-create')]
