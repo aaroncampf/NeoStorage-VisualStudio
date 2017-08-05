@@ -57,7 +57,7 @@ class LocationCreate(CreateView):
 	def form_valid(self, form):
 		self.success_url = '/locations'
 		form.save()
-		return super(form_valid, self).form_valid(form)
+		return super(LocationCreate, self).form_valid(form)
 
 def locationguide(request):
 	"""Renders the locations page."""
@@ -90,7 +90,7 @@ class VendorCreate(CreateView):
 	def form_valid(self, form):
 		self.success_url = '/vendor'
 		form.save()
-		return super(form_valid, self).form_valid(form)
+		return super(VendorCreate, self).form_valid(form)
 
 def vendors(request):
 	"""Renders the vendors page."""
@@ -124,7 +124,7 @@ class ProductCreate(CreateView):
 	def form_valid(self, form):
 		self.success_url = '/products'
 		form.save()
-		return super(form_valid, self).form_valid(form)
+		return super(ProductCreate, self).form_valid(form)
 
 def products(request):
 	"""Renders the products page."""

@@ -18,7 +18,7 @@
 		<th style="text-align:center"></th>
     </tr>
 
-    {% for Vendor in data %}
+    {% for Vendor in data %} <!--data is from views.py controller passed as array-->
     <tr>
         <td>{{ Vendor.Name }}</td>
         <td>{{ Vendor.Address }}</td>
@@ -27,7 +27,7 @@
         <td>{{ Vendor.Zip }}</td>
         <td>{{ Vendor.Phone }}</td>
 		<td>{{ Vendor.Email }}</td>
-		<td><a href="vendor/{{ Vendor.pk }}">Edit</a></td>
+		<td><a href="vendors/{{ Vendor.pk }}">Edit</a></td> <!--pk is like id -->
     </tr>
     {% endfor %}
 
