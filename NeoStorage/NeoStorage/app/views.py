@@ -63,8 +63,16 @@ def locationguide(request):
 	"""Renders the locations page."""
 	assert isinstance(request, HttpRequest)
 
-	TestData = groupby(Location.objects.all(), lambda x: x.Area)	
+		
 
+	test1 = Location.objects.all()[:1].get()
+
+	data = []
+
+	for x in Location.objects.all():
+		data.append((x.Area,x.Bin,x.product.Description))
+		
+	TestData = groupby(data, lambda x: x[0])
 	#for Area, Locations in TestData:
 	#	print(Area)
 	#	for Loc in Locations:
@@ -136,9 +144,9 @@ def products(request):
 		Location1 = Location.objects.all()[0]
 		Location2 = Location.objects.all()[1]
 
-		Product1 = Product.objects.create(CATG = "A", Group = "A-1", Description = "Towels", Vendor = Vendor1, Location = Location1)
+		Product1 = Product.objects.create(CATG = "A", Group = "A-1", Description = "Towels", Vendor = Vendor1, location = Location1)
 		Product1.save()
-		Product2 = Product.objects.create(CATG = "A", Group = "A-2", Description = "Toilet Paper", Vendor = Vendor2, Location = Location2)
+		Product2 = Product.objects.create(CATG = "A", Group = "A-2", Description = "Toilet Paper", Vendor = Vendor2, location = Location2)
 		Product2.save()
 
 	return render(request,
